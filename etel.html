@@ -197,17 +197,31 @@
                 height: 0;
                 overflow: hidden;
                 transition: height 0.3s ease;
+                background-color: var(--primary-color);
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000;
             }
 
             nav.active {
                 height: auto;
-                padding: 1rem;
+                padding: 60px 1rem 1rem;
             }
 
             nav a {
                 display: block;
                 margin: 10px 0;
                 text-align: center;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            nav.active a {
+                opacity: 1;
+                transform: translateY(0);
             }
 
             .hamburger.active span:nth-child(1) {
