@@ -285,6 +285,34 @@
     </footer>
 
     <script>
+        // Initialize mobile menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+
+            // Mobile menu functionality
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
         // Navigation scroll effect
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
@@ -317,23 +345,6 @@
             if (e.target === lightbox) {
                 lightbox.classList.remove('active');
             }
-        });
-
-        // Mobile menu functionality
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-            });
         });
     </script>
 </body>
