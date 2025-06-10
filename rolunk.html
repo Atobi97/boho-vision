@@ -141,9 +141,10 @@
                 background-color: var(--primary-color);
                 position: fixed;
                 top: 0;
-                left: 0;
                 right: 0;
+                width: 250px;
                 z-index: 1000;
+                box-shadow: -2px 0 5px rgba(0,0,0,0.2);
             }
 
             nav.active {
@@ -154,15 +155,16 @@
             nav a {
                 display: block;
                 margin: 10px 0;
-                text-align: center;
+                text-align: left;
+                padding: 10px 15px;
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateX(20px);
                 transition: opacity 0.3s ease, transform 0.3s ease;
             }
 
             nav.active a {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
 
             .hamburger.active span:nth-child(1) {
