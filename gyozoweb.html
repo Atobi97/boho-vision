@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boho Vision - Fotószolgáltatások</title>
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #f4f4f4;
+            --accent-color: #666;
+            --text-color: #333;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--secondary-color);
+            padding: 120px 50px 50px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s 0.3s forwards;
+            line-height: 1.6;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s 0.6s forwards;
+            font-style: italic;
+        }
+
+        /* Services Section */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service {
+            background-color: white;
+            padding: 30px;
+            text-align: left;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .service h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .service p {
+            margin: 0;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .services-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 50px 0 30px;
+            color: var(--primary-color);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Social Links */
+        .social {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--secondary-color);
+        }
+
+        .social a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .social a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.5rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .hero {
+                padding: 100px 20px 50px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .service {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="gyozoweb.html">Főoldal</a>
+        <a href="rolunk.html">Rólunk</a>
+        <a href="portre.html">Portré és családi fotózás</a>
+        <a href="etel.html">Ételfotózás</a>
+        <a href="reklam.html">Reklám és üzleti fotózás</a>
+        <a href="eskuvo.html">Esküvőfotózás</a>
+        <a href="kapcsolat.html">Kapcsolat</a>
+    </nav>
+
+    <div class="hero" id="home">
+        <h1>BOHO VISION</h1>
+        <p>Két fotós, egy látásmód – természetes, emberközeli képek</p>
+        <p class="subtitle">Bóza Győző & Hochoner Zoltán</p>
+    </div>
+
+    <div class="services-title">Szolgáltatások</div>
+    <div class="services">
+        <div class="service" id="portre">
+            <h2>Portréfotózás</h2>
+            <p>Magabiztos, természetes képek magadról</p>
+        </div>
+        <div class="service" id="paros">
+            <h2>Páros fotózás</h2>
+            <p>Közös pillanatok, amik rólatok szólnak</p>
+        </div>
+        <div class="service" id="rendezveny">
+            <h2>Rendezvényfotózás</h2>
+            <p>Megörökítjük a hangulatot: születésnap, kisebb események, privát alkalmak</p>
+        </div>
+        <div class="service" id="termek">
+            <h2>Termékfotózás</h2>
+            <p>Letisztult, hangulatos képek kézműves vagy kisvállalkozói termékekhez</p>
+        </div>
+        <div class="service" id="lifestyle">
+            <h2>Lifestyle & hangulatképek</h2>
+            <p>Az élet apró szépségei, megfogva fényben</p>
+        </div>
+        <div class="service" id="portfolio">
+            <h2>Portfólió & TFP lehetőségek</h2>
+            <p>Modell vagy alkotó vagy? Dolgozzunk együtt!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Boho Vision – Bóza Győző & Hochoner Zoltán</p>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
