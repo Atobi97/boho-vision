@@ -334,21 +334,16 @@
         <span></span>
     </div>
 
-    <header>
-        <div class="logo">
-            <a href="index.html">BoHo Vision</a>
-        </div>
-        <nav>
-            <a href="index.html">Főoldal</a>
-            <a href="rolunk.html">Rólunk</a>
-            <a href="divat.html">Divat & Brandfotó</a>
-            <a href="portre.html">Portré & Beauty</a>
-            <a href="csalad.html">Család & Újszülött</a>
-            <a href="esemeny.html">Esemény & Party</a>
-            <a href="auto.html">Autók & Motorok</a>
-            <a href="kapcsolat.html">Kapcsolat</a>
-        </nav>
-    </header>
+    <nav>
+        <a href="index.html">Főoldal</a>
+        <a href="rolunk.html">Rólunk</a>
+        <a href="divat.html">Divat & Brandfotó</a>
+        <a href="portre.html">Portré & Beauty</a>
+        <a href="csalad.html">Család & Újszülött</a>
+        <a href="esemeny.html">Esemény & Party</a>
+        <a href="auto.html">Autók & Motorok</a>
+        <a href="kapcsolat.html">Kapcsolat</a>
+    </nav>
 
     <div class="hero" id="home">
         <h1>BoHo VISION</h1>
@@ -412,17 +407,25 @@
         // Mobile menu functionality
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
-
+        
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
             nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                nav.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         });
 
         // Close menu when clicking a link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
                 nav.classList.remove('active');
+                hamburger.classList.remove('active');
             });
         });
     </script>
