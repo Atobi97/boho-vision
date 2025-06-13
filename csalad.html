@@ -179,6 +179,8 @@
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none; /* IE and Edge */
+            width: 100%;
+            flex-wrap: nowrap;
         }
 
         .gallery::-webkit-scrollbar {
@@ -193,6 +195,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: var(--transition);
+            min-width: 300px;
         }
 
         .gallery-item:hover {
@@ -320,6 +323,7 @@
 
             .gallery-item {
                 flex: 0 0 250px;
+                min-width: 250px;
             }
 
             .gallery-item img {
