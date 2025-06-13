@@ -328,6 +328,55 @@
                 font-size: 1rem;
             }
         }
+
+        /* Package Colors */
+        .package-basic {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #6c757d;
+        }
+
+        .package-standard {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+
+        .package-premium {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+
+        .package-item {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-title {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .package-price {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .package-basic .package-price {
+            color: #6c757d;
+        }
+
+        .package-standard .package-price {
+            color: #2196f3;
+        }
+
+        .package-premium .package-price {
+            color: #9c27b0;
+        }
     </style>
 </head>
 <body>
@@ -350,35 +399,65 @@
 
     <main class="content-section">
         <div class="content-container">
-            <h1 class="content-title">Portré & Beauty</h1>
+            <h1 class="content-title">Portré</h1>
             <div class="content-text">
-                <p>Minden arc mögött ott rejlik egy világ. Portréinkkal nem csak fotózunk, hanem megmutatjuk azt, amit más talán észre sem vesz – finom részleteket, karaktert, tekintetet. Sminkessel vagy természetesen, ahogy igazán te vagy.</p>
+                <p>A portréfotózás nem csak a külsőről szól – a belsőről, a karakterről, az érzésekről van szó. Mi nem csak lefotózzuk az arcot, hanem megörökítjük a lélek tükrét.</p>
                 
+                <!-- Gallery Section -->
+                <div class="gallery-section">
+                    <h2 class="gallery-title">Galéria</h2>
+                    <div class="gallery-grid">
+                        <!-- Gallery items will be added here -->
+                        <div class="gallery-item">
+                            <img src="path/to/image1.jpg" alt="Portré fotó 1">
+                            <div class="gallery-caption">Mini Portré Session</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image2.jpg" alt="Portré fotó 2">
+                            <div class="gallery-caption">Classic Portré Shoot</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image3.jpg" alt="Portré fotó 3">
+                            <div class="gallery-caption">Art Portré Series</div>
+                        </div>
+                        <!-- Add more gallery items as needed -->
+                    </div>
+                </div>
+
                 <h2>Csomagok</h2>
                 
-                <h3>Kis csomag – "Gyors Portré"</h3>
-                <ul>
-                    <li>Időtartam: 45 perc</li>
-                    <li>Képek: 5 retusált kép</li>
-                    <li>Ár: 35 000 Ft</li>
-                    <li>Ideális LinkedIn-re, CV-re vagy személyes felhasználásra</li>
-                </ul>
+                <div class="package-item package-basic">
+                    <h3 class="package-title">Kis csomag – "Gyors Portré"</h3>
+                    <ul>
+                        <li>Időtartam: 45 perc</li>
+                        <li>Képek: 5 retusált kép</li>
+                        <li>Ár: 35 000 Ft</li>
+                        <li>Ideális LinkedIn-re, CV-re vagy személyes felhasználásra</li>
+                    </ul>
+                    <div class="package-price">35 000 Ft</div>
+                </div>
 
-                <h3>Közepes csomag – "Beauty Session"</h3>
-                <ul>
-                    <li>Időtartam: 1,5 óra</li>
-                    <li>Képek: 10 retusált kép</li>
-                    <li>Ár: 59 000 Ft</li>
-                    <li>Sminkkel vagy stylinggal, személyre szabva</li>
-                </ul>
+                <div class="package-item package-standard">
+                    <h3 class="package-title">Közepes csomag – "Beauty Session"</h3>
+                    <ul>
+                        <li>Időtartam: 1,5 óra</li>
+                        <li>Képek: 10 retusált kép</li>
+                        <li>Ár: 59 000 Ft</li>
+                        <li>Sminkkel vagy stylinggal, személyre szabva</li>
+                    </ul>
+                    <div class="package-price">59 000 Ft</div>
+                </div>
 
-                <h3>Prémium csomag – "Portfólió Építő"</h3>
-                <ul>
-                    <li>Időtartam: 2,5–3 óra</li>
-                    <li>Képek: 15–18 retusált kép</li>
-                    <li>Ár: 89 000 Ft</li>
-                    <li>Modellbook, színészeknek, kreatív projekthez</li>
-                </ul>
+                <div class="package-item package-premium">
+                    <h3 class="package-title">Prémium csomag – "Portfólió Építő"</h3>
+                    <ul>
+                        <li>Időtartam: 2,5–3 óra</li>
+                        <li>Képek: 15–18 retusált kép</li>
+                        <li>Ár: 89 000 Ft</li>
+                        <li>Modellbook, színészeknek, kreatív projekthez</li>
+                    </ul>
+                    <div class="package-price">89 000 Ft</div>
+                </div>
 
                 <h2>Javasolt csomag</h2>
                 <ul>
@@ -394,27 +473,6 @@
                     <li>Utómunka: 12 kép × 3 000 Ft = 36 000 Ft</li>
                     <li>Összesen: kb. 66 000 Ft</li>
                 </ul>
-            </div>
-
-            <!-- Gallery Section -->
-            <div class="gallery-section">
-                <h2 class="gallery-title">Galéria</h2>
-                <div class="gallery-grid">
-                    <!-- Gallery items will be added here -->
-                    <div class="gallery-item">
-                        <img src="path/to/image1.jpg" alt="Portré fotó 1">
-                        <div class="gallery-caption">Mini Portré Session</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image2.jpg" alt="Portré fotó 2">
-                        <div class="gallery-caption">Classic Portré Shoot</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image3.jpg" alt="Portré fotó 3">
-                        <div class="gallery-caption">Art Portré Series</div>
-                    </div>
-                    <!-- Add more gallery items as needed -->
-                </div>
             </div>
         </div>
     </main>

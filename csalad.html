@@ -328,6 +328,55 @@
                 font-size: 1rem;
             }
         }
+
+        /* Package Colors */
+        .package-basic {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #6c757d;
+        }
+
+        .package-standard {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+
+        .package-premium {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+
+        .package-item {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-title {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .package-price {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .package-basic .package-price {
+            color: #6c757d;
+        }
+
+        .package-standard .package-price {
+            color: #2196f3;
+        }
+
+        .package-premium .package-price {
+            color: #9c27b0;
+        }
     </style>
 </head>
 <body>
@@ -350,71 +399,80 @@
 
     <main class="content-section">
         <div class="content-container">
-            <h1 class="content-title">Család & Újszülött</h1>
+            <h1 class="content-title">Család</h1>
             <div class="content-text">
-                <p>Az első ölelések, a mosolyok, a pillanatok, amik sosem térnek vissza – mi elkapjuk őket. Családi és újszülött fotózásaink során a meghittség és az őszinteség vezérel minket. Nincs erőltetett póz, csak valódi történetek.</p>
+                <p>A család az élet legszebb ajándéka. Mi nem csak lefotózzuk a pillanatokat, hanem megörökítjük az érzéseket, a kapcsolatokat, a szeretetet, ami összeköt benneteket.</p>
                 
+                <!-- Gallery Section -->
+                <div class="gallery-section">
+                    <h2 class="gallery-title">Galéria</h2>
+                    <div class="gallery-grid">
+                        <!-- Gallery items will be added here -->
+                        <div class="gallery-item">
+                            <img src="path/to/image1.jpg" alt="Család fotó 1">
+                            <div class="gallery-caption">Mini Család Session</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image2.jpg" alt="Család fotó 2">
+                            <div class="gallery-caption">Classic Család Shoot</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image3.jpg" alt="Család fotó 3">
+                            <div class="gallery-caption">Art Család Series</div>
+                        </div>
+                        <!-- Add more gallery items as needed -->
+                    </div>
+                </div>
+
                 <h2>Csomagok</h2>
                 
-                <h3>Kis csomag – "Mini Emlék"</h3>
-                <ul>
-                    <li>Időtartam: 45 perc</li>
-                    <li>Képek: 8 db</li>
-                    <li>Ár: 39 000 Ft</li>
-                    <li>Pici ízelítő egy örökre szóló időszakból</li>
-                </ul>
+                <div class="package-item package-basic">
+                    <h3 class="package-title">Kis csomag – „Mini Család"</h3>
+                    <ul>
+                        <li>Időtartam: 30 perc</li>
+                        <li>Képek: 10 db</li>
+                        <li>Ár: 35 000 Ft</li>
+                        <li>Kisebb családok, gyerekek</li>
+                    </ul>
+                    <div class="package-price">35 000 Ft</div>
+                </div>
 
-                <h3>Közepes csomag – "Családi Hangulat"</h3>
-                <ul>
-                    <li>Időtartam: 1,5 óra</li>
-                    <li>Képek: 15 db</li>
-                    <li>Ár: 65 000 Ft</li>
-                    <li>Otthoni vagy kültéri fotózás, meghitt hangulatban</li>
-                </ul>
+                <div class="package-item package-standard">
+                    <h3 class="package-title">Közepes csomag – „Classic Család"</h3>
+                    <ul>
+                        <li>Időtartam: 1,5 óra</li>
+                        <li>Képek: 25 db</li>
+                        <li>Ár: 65 000 Ft</li>
+                        <li>Nagyobb családok, több generáció</li>
+                    </ul>
+                    <div class="package-price">65 000 Ft</div>
+                </div>
 
-                <h3>Prémium csomag – "Első Év"</h3>
-                <ul>
-                    <li>Időtartam: 2 fotózás (pl. újszülött + 6 hónapos)</li>
-                    <li>Képek: 25 db összesen</li>
-                    <li>Ár: 99 000 Ft</li>
-                    <li>Egy mini történet a gyermeked első hónapjairól</li>
-                </ul>
+                <div class="package-item package-premium">
+                    <h3 class="package-title">Prémium csomag – „Art Család"</h3>
+                    <ul>
+                        <li>Időtartam: 3 óra</li>
+                        <li>Képek: 50 db</li>
+                        <li>Ár: 120 000 Ft</li>
+                        <li>Teljes családi album, több helyszín</li>
+                    </ul>
+                    <div class="package-price">120 000 Ft</div>
+                </div>
 
                 <h2>Javasolt csomag</h2>
                 <ul>
-                    <li>Időtartam: 1–1,5 óra</li>
-                    <li>10–15 válogatott, természetes stílusú kép</li>
-                    <li>Otthoni környezet vagy kültér</li>
-                    <li>Utómunka: 2–3 óra</li>
+                    <li>Időtartam: 1,5 óra fotózás</li>
+                    <li>25 képes válogatás, részletes utómunkával</li>
+                    <li>Két helyszín, több ruhával</li>
+                    <li>Utómunka: 4 óra</li>
                 </ul>
 
                 <h3>Belső kalkuláció</h3>
                 <ul>
                     <li>Fotózás: 1,5 × 15 000 Ft = 22 500 Ft</li>
-                    <li>Utómunka: 12 kép × 3 000 Ft = 36 000 Ft</li>
-                    <li>Összesen: kb. 58 500 Ft</li>
+                    <li>Utómunka: 25 kép × 1 700 Ft = 42 500 Ft</li>
+                    <li>Összesen: kb. 65 000 Ft</li>
                 </ul>
-            </div>
-
-            <!-- Gallery Section -->
-            <div class="gallery-section">
-                <h2 class="gallery-title">Galéria</h2>
-                <div class="gallery-grid">
-                    <!-- Gallery items will be added here -->
-                    <div class="gallery-item">
-                        <img src="path/to/image1.jpg" alt="Család fotó 1">
-                        <div class="gallery-caption">Mini Család Session</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image2.jpg" alt="Család fotó 2">
-                        <div class="gallery-caption">Classic Család Shoot</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image3.jpg" alt="Család fotó 3">
-                        <div class="gallery-caption">Art Család Series</div>
-                    </div>
-                    <!-- Add more gallery items as needed -->
-                </div>
             </div>
         </div>
     </main>

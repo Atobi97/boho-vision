@@ -328,6 +328,55 @@
                 font-size: 1rem;
             }
         }
+
+        /* Package Colors */
+        .package-basic {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #6c757d;
+        }
+
+        .package-standard {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+
+        .package-premium {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+
+        .package-item {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-title {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .package-price {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .package-basic .package-price {
+            color: #6c757d;
+        }
+
+        .package-standard .package-price {
+            color: #2196f3;
+        }
+
+        .package-premium .package-price {
+            color: #9c27b0;
+        }
     </style>
 </head>
 <body>
@@ -354,67 +403,76 @@
             <div class="content-text">
                 <p>A jó buli gyorsan elszáll – de a képek maradnak. Mi ott vagyunk, amikor a fények villannak, a hangulat tetőfokára hág, és mindenki önfeledt. Diszkréten dokumentálunk, hogy újra átélhetővé váljon az este.</p>
                 
+                <!-- Gallery Section -->
+                <div class="gallery-section">
+                    <h2 class="gallery-title">Galéria</h2>
+                    <div class="gallery-grid">
+                        <!-- Gallery items will be added here -->
+                        <div class="gallery-item">
+                            <img src="path/to/image1.jpg" alt="Esemény fotó 1">
+                            <div class="gallery-caption">Mini Event Session</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image2.jpg" alt="Esemény fotó 2">
+                            <div class="gallery-caption">Classic Event Shoot</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image3.jpg" alt="Esemény fotó 3">
+                            <div class="gallery-caption">Art Event Series</div>
+                        </div>
+                        <!-- Add more gallery items as needed -->
+                    </div>
+                </div>
+
                 <h2>Csomagok</h2>
                 
-                <h3>Kis csomag – „Alap Esemény"</h3>
-                <ul>
-                    <li>Időtartam: 2 óra</li>
-                    <li>Képek: 50 db</li>
-                    <li>Ár: 59 000 Ft</li>
-                    <li>Szűkebb rendezvények, szülinap, kisebb party</li>
-                </ul>
+                <div class="package-item package-basic">
+                    <h3 class="package-title">Kis csomag – „Mini Event"</h3>
+                    <ul>
+                        <li>Időtartam: 2 óra</li>
+                        <li>Képek: 50 db</li>
+                        <li>Ár: 85 000 Ft</li>
+                        <li>Kisebb rendezvények, bulik</li>
+                    </ul>
+                    <div class="package-price">85 000 Ft</div>
+                </div>
 
-                <h3>Közepes csomag – „Hangulat Fullban"</h3>
-                <ul>
-                    <li>Időtartam: 4 óra</li>
-                    <li>Képek: 100 db</li>
-                    <li>Ár: 99 000 Ft</li>
-                    <li>Klubok, céges partik, DJ estek</li>
-                </ul>
+                <div class="package-item package-standard">
+                    <h3 class="package-title">Közepes csomag – „Classic Event"</h3>
+                    <ul>
+                        <li>Időtartam: 4 óra</li>
+                        <li>Képek: 100 db</li>
+                        <li>Ár: 150 000 Ft</li>
+                        <li>Nagyobb rendezvények, konferenciák</li>
+                    </ul>
+                    <div class="package-price">150 000 Ft</div>
+                </div>
 
-                <h3>Prémium csomag – „All Night Long"</h3>
-                <ul>
-                    <li>Időtartam: 6–7 óra</li>
-                    <li>Képek: 150–200 db</li>
-                    <li>Ár: 149 000 Ft</li>
-                    <li>Nagy rendezvény, több helyszín, after hangulat</li>
-                </ul>
+                <div class="package-item package-premium">
+                    <h3 class="package-title">Prémium csomag – „Art Event"</h3>
+                    <ul>
+                        <li>Időtartam: 8 óra</li>
+                        <li>Képek: 200 db</li>
+                        <li>Ár: 280 000 Ft</li>
+                        <li>Teljes napos események, fesztiválok</li>
+                    </ul>
+                    <div class="package-price">280 000 Ft</div>
+                </div>
 
                 <h2>Javasolt csomag</h2>
                 <ul>
-                    <li>Időtartam: 3–5 óra helyszíni fotózás</li>
-                    <li>50–100 képes válogatás, könnyű utómunkával</li>
-                    <li>Mozgalmas környezet, kevesebb retus, több szűrés</li>
-                    <li>Utómunka: 5–6 óra</li>
+                    <li>Időtartam: 4 óra fotózás</li>
+                    <li>100 képes válogatás, részletes utómunkával</li>
+                    <li>Két helyszín, több ruhával</li>
+                    <li>Utómunka: 8 óra</li>
                 </ul>
 
                 <h3>Belső kalkuláció</h3>
                 <ul>
                     <li>Fotózás: 4 × 15 000 Ft = 60 000 Ft</li>
-                    <li>Utómunka: 6 × 10 000 Ft = 60 000 Ft</li>
-                    <li>Összesen: kb. 120 000 Ft</li>
+                    <li>Utómunka: 100 kép × 900 Ft = 90 000 Ft</li>
+                    <li>Összesen: kb. 150 000 Ft</li>
                 </ul>
-            </div>
-
-            <!-- Gallery Section -->
-            <div class="gallery-section">
-                <h2 class="gallery-title">Galéria</h2>
-                <div class="gallery-grid">
-                    <!-- Gallery items will be added here -->
-                    <div class="gallery-item">
-                        <img src="path/to/image1.jpg" alt="Esemény fotó 1">
-                        <div class="gallery-caption">Alap Esemény Session</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image2.jpg" alt="Esemény fotó 2">
-                        <div class="gallery-caption">Hangulat Fullban Shoot</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image3.jpg" alt="Esemény fotó 3">
-                        <div class="gallery-caption">All Night Long Series</div>
-                    </div>
-                    <!-- Add more gallery items as needed -->
-                </div>
             </div>
         </div>
     </main>

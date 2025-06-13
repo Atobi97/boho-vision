@@ -265,6 +265,55 @@
             transform: translateY(0);
         }
 
+        /* Package Colors */
+        .package-basic {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #6c757d;
+        }
+
+        .package-standard {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+
+        .package-premium {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+
+        .package-item {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-title {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .package-price {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .package-basic .package-price {
+            color: #6c757d;
+        }
+
+        .package-standard .package-price {
+            color: #2196f3;
+        }
+
+        .package-premium .package-price {
+            color: #9c27b0;
+        }
+
         footer {
             background-color: var(--primary-color);
             color: white;
@@ -351,71 +400,80 @@
 
     <main class="content-section">
         <div class="content-container">
-            <h1 class="content-title">Divat & Brandfotó</h1>
+            <h1 class="content-title">Divat</h1>
             <div class="content-text">
-                <p>A ruhák nemcsak öltöztetnek, mesélnek is. Mi segítünk képekké formálni a márkád történetét – akár egy horgolt ruhadarabban, akár egy teljes kampánykoncepcióban. Stúdióban vagy a szabadban, mindig karakterrel fotózunk.</p>
+                <p>A divat nem csak a ruhákról szól – a stílusról, a hangulatról, az attitűdről van szó. Mi nem csak lefotózzuk a ruhákat, hanem megörökítjük a karaktert, a mozgást, az életet, ami mögöttük van.</p>
                 
+                <!-- Gallery Section -->
+                <div class="gallery-section">
+                    <h2 class="gallery-title">Galéria</h2>
+                    <div class="gallery-grid">
+                        <!-- Gallery items will be added here -->
+                        <div class="gallery-item">
+                            <img src="path/to/image1.jpg" alt="Divat fotó 1">
+                            <div class="gallery-caption">Lookbook Session</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image2.jpg" alt="Divat fotó 2">
+                            <div class="gallery-caption">Editorial Shoot</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image3.jpg" alt="Divat fotó 3">
+                            <div class="gallery-caption">Campaign Photo</div>
+                        </div>
+                        <!-- Add more gallery items as needed -->
+                    </div>
+                </div>
+
                 <h2>Csomagok</h2>
                 
-                <h3>Kis csomag – "Lookbook Mini"</h3>
-                <ul>
-                    <li>Időtartam: ~1 óra / 1 öltözet</li>
-                    <li>Képek: 8 retusált kép</li>
-                    <li>Ár: 49 000 Ft</li>
-                    <li>Ideális kezdő tervezőknek, kis márkáknak</li>
-                </ul>
+                <div class="package-item package-basic">
+                    <h3 class="package-title">Kis csomag – "Lookbook"</h3>
+                    <ul>
+                        <li>Időtartam: 1,5 óra</li>
+                        <li>Képek: 15 db</li>
+                        <li>Ár: 45 000 Ft</li>
+                        <li>Alap divatfotózás, social media tartalom</li>
+                    </ul>
+                    <div class="package-price">45 000 Ft</div>
+                </div>
 
-                <h3>Közepes csomag – "Kampány Start"</h3>
-                <ul>
-                    <li>Időtartam: ~2–2,5 óra / 2–3 öltözet</li>
-                    <li>Képek: 15 retusált kép</li>
-                    <li>Ár: 89 000 Ft</li>
-                    <li>Komplett brand hangulatra, weboldalra, social médiára</li>
-                </ul>
+                <div class="package-item package-standard">
+                    <h3 class="package-title">Közepes csomag – "Editorial"</h3>
+                    <ul>
+                        <li>Időtartam: 2,5 óra</li>
+                        <li>Képek: 25 db</li>
+                        <li>Ár: 75 000 Ft</li>
+                        <li>Részletes, koncepció alapú fotózás, több helyszín</li>
+                    </ul>
+                    <div class="package-price">75 000 Ft</div>
+                </div>
 
-                <h3>Prémium csomag – "Full Kampány"</h3>
-                <ul>
-                    <li>Időtartam: 4+ óra / 4+ öltözet</li>
-                    <li>Képek: 25–30 retusált kép</li>
-                    <li>Ár: 139 000 Ft</li>
-                    <li>Kreatív koncepcióval, stylinggal, több helyszínen</li>
-                </ul>
+                <div class="package-item package-premium">
+                    <h3 class="package-title">Prémium csomag – "Campaign"</h3>
+                    <ul>
+                        <li>Időtartam: 4 óra</li>
+                        <li>Képek: 40 db</li>
+                        <li>Ár: 120 000 Ft</li>
+                        <li>Teljes körű divatkampány, több ruhával, helyszínnel</li>
+                    </ul>
+                    <div class="package-price">120 000 Ft</div>
+                </div>
 
-                <h2>Javasolt csomag (stúdió vagy kültéri)</h2>
+                <h2>Javasolt csomag</h2>
                 <ul>
-                    <li>Időtartam: 2–4 óra fotózás</li>
-                    <li>15–30 átadott retusált kép</li>
-                    <li>1–2 öltözék/koncepció</li>
-                    <li>Utómunka: 3–5 óra</li>
+                    <li>Időtartam: 2 óra fotózás</li>
+                    <li>20 képes válogatás, részletes utómunkával</li>
+                    <li>Két helyszín, több ruhával</li>
+                    <li>Utómunka: 4 óra</li>
                 </ul>
 
                 <h3>Belső kalkuláció</h3>
                 <ul>
                     <li>Fotózás: 2 × 15 000 Ft = 30 000 Ft</li>
-                    <li>Utómunka: 20 kép × 3 000 Ft = 60 000 Ft</li>
-                    <li>Összesen: kb. 90 000 Ft</li>
+                    <li>Utómunka: 20 kép × 2 000 Ft = 40 000 Ft</li>
+                    <li>Összesen: kb. 70 000 Ft</li>
                 </ul>
-            </div>
-
-            <!-- Gallery Section -->
-            <div class="gallery-section">
-                <h2 class="gallery-title">Galéria</h2>
-                <div class="gallery-grid">
-                    <!-- Gallery items will be added here -->
-                    <div class="gallery-item">
-                        <img src="path/to/image1.jpg" alt="Divat fotó 1">
-                        <div class="gallery-caption">Lookbook Session</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image2.jpg" alt="Divat fotó 2">
-                        <div class="gallery-caption">Editorial Shoot</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image3.jpg" alt="Divat fotó 3">
-                        <div class="gallery-caption">Campaign Photo</div>
-                    </div>
-                    <!-- Add more gallery items as needed -->
-                </div>
             </div>
         </div>
     </main>

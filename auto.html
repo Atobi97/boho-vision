@@ -265,6 +265,55 @@
             transform: translateY(0);
         }
 
+        /* Package Colors */
+        .package-basic {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #6c757d;
+        }
+
+        .package-standard {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+        }
+
+        .package-premium {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 4px solid #9c27b0;
+        }
+
+        .package-item {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-title {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .package-price {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .package-basic .package-price {
+            color: #6c757d;
+        }
+
+        .package-standard .package-price {
+            color: #2196f3;
+        }
+
+        .package-premium .package-price {
+            color: #9c27b0;
+        }
+
         footer {
             background-color: var(--primary-color);
             color: white;
@@ -355,67 +404,76 @@
             <div class="content-text">
                 <p>A benzingőz, a formák, a fények játéka. Nem csak lefotózzuk, amit látsz – megmutatjuk azt, amit érzel, amikor ránézel egy gépre. Járműfotóinkban dinamika, karakter és stílus találkozik.</p>
                 
+                <!-- Gallery Section -->
+                <div class="gallery-section">
+                    <h2 class="gallery-title">Galéria</h2>
+                    <div class="gallery-grid">
+                        <!-- Gallery items will be added here -->
+                        <div class="gallery-item">
+                            <img src="path/to/image1.jpg" alt="Autó fotó 1">
+                            <div class="gallery-caption">Mini Auto Session</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image2.jpg" alt="Autó fotó 2">
+                            <div class="gallery-caption">Classic Auto Shoot</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="path/to/image3.jpg" alt="Autó fotó 3">
+                            <div class="gallery-caption">Premium Auto Series</div>
+                        </div>
+                        <!-- Add more gallery items as needed -->
+                    </div>
+                </div>
+
                 <h2>Csomagok</h2>
                 
-                <h3>Kis csomag – "Gépszív"</h3>
-                <ul>
-                    <li>Időtartam: ~1 óra</li>
-                    <li>Képek: 8 db</li>
-                    <li>Ár: 45 000 Ft</li>
-                    <li>Alap járműbemutató, socialra, hirdetésre</li>
-                </ul>
+                <div class="package-item package-basic">
+                    <h3 class="package-title">Kis csomag – „Mini Auto"</h3>
+                    <ul>
+                        <li>Időtartam: 1 óra</li>
+                        <li>Képek: 10 db</li>
+                        <li>Ár: 35 000 Ft</li>
+                        <li>Egy helyszín, alap fotózás</li>
+                    </ul>
+                    <div class="package-price">35 000 Ft</div>
+                </div>
 
-                <h3>Közepes csomag – "Streetstyle"</h3>
-                <ul>
-                    <li>Időtartam: 1,5–2 óra</li>
-                    <li>Képek: 12–15 db</li>
-                    <li>Ár: 69 000 Ft</li>
-                    <li>Dinamikus, részletorientált fotózás városi háttérrel</li>
-                </ul>
+                <div class="package-item package-standard">
+                    <h3 class="package-title">Közepes csomag – „Classic Auto"</h3>
+                    <ul>
+                        <li>Időtartam: 2 óra</li>
+                        <li>Képek: 20 db</li>
+                        <li>Ár: 65 000 Ft</li>
+                        <li>Két helyszín, részletes fotózás</li>
+                    </ul>
+                    <div class="package-price">65 000 Ft</div>
+                </div>
 
-                <h3>Prémium csomag – "Showroom Look"</h3>
-                <ul>
-                    <li>Időtartam: 2,5–3 óra</li>
-                    <li>Képek: 20 db</li>
-                    <li>Ár: 99 000 Ft</li>
-                    <li>Reklámminőség, esti vagy különleges fényelés, videó opcióval</li>
-                </ul>
+                <div class="package-item package-premium">
+                    <h3 class="package-title">Prémium csomag – „Premium Auto"</h3>
+                    <ul>
+                        <li>Időtartam: 4 óra</li>
+                        <li>Képek: 40 db</li>
+                        <li>Ár: 120 000 Ft</li>
+                        <li>Több helyszín, koncepciós fotózás</li>
+                    </ul>
+                    <div class="package-price">120 000 Ft</div>
+                </div>
 
                 <h2>Javasolt csomag</h2>
                 <ul>
-                    <li>Időtartam: 1,5–2 óra fotózás</li>
-                    <li>10–15 képes válogatás, részlet- és hangulatorientált</li>
-                    <li>Stílusos utómunka, színegyensúly, kontraszt, dinamika</li>
-                    <li>Utómunka: 3–4 óra</li>
+                    <li>Időtartam: 2 óra fotózás</li>
+                    <li>20 képes válogatás, részletes utómunkával</li>
+                    <li>Két helyszín, több szögből</li>
+                    <li>Utómunka: 4 óra</li>
                 </ul>
 
                 <h3>Belső kalkuláció</h3>
                 <ul>
                     <li>Fotózás: 2 × 15 000 Ft = 30 000 Ft</li>
-                    <li>Utómunka: 12 kép × 3 000 Ft = 36 000 Ft</li>
-                    <li>Összesen: kb. 66 000 Ft</li>
+                    <li>Utómunka: 20 kép × 1 750 Ft = 35 000 Ft</li>
+                    <li>Összesen: kb. 65 000 Ft</li>
                 </ul>
-            </div>
-
-            <!-- Gallery Section -->
-            <div class="gallery-section">
-                <h2 class="gallery-title">Galéria</h2>
-                <div class="gallery-grid">
-                    <!-- Gallery items will be added here -->
-                    <div class="gallery-item">
-                        <img src="path/to/image1.jpg" alt="Autó fotó 1">
-                        <div class="gallery-caption">Gépszív Session</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image2.jpg" alt="Autó fotó 2">
-                        <div class="gallery-caption">Streetstyle Shoot</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="path/to/image3.jpg" alt="Autó fotó 3">
-                        <div class="gallery-caption">Showroom Look Series</div>
-                    </div>
-                    <!-- Add more gallery items as needed -->
-                </div>
             </div>
         </div>
     </main>
