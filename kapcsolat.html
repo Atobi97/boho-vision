@@ -25,19 +25,30 @@
             color: var(--text-color);
         }
 
-        nav {
+        header {
             background-color: var(--primary-color);
             padding: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav.scrolled {
-            padding: 0.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: transparent;
+            padding: 0;
+            position: static;
+            width: auto;
         }
 
         nav a {
@@ -214,21 +225,27 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <a href="index.html">BoHo Vision</a>
+        </div>
+        <nav>
+            <a href="index.html">Főoldal</a>
+            <a href="rolunk.html">Rólunk</a>
+            <a href="divat.html">Divat & Brandfotó</a>
+            <a href="portre.html">Portré & Beauty</a>
+            <a href="csalad.html">Család & Újszülött</a>
+            <a href="esemeny.html">Esemény & Party</a>
+            <a href="auto.html">Autók & Motorok</a>
+            <a href="kapcsolat.html">Kapcsolat</a>
+        </nav>
+    </header>
+
     <div class="hamburger">
         <span></span>
         <span></span>
         <span></span>
     </div>
-
-    <nav>
-        <a href="index.html">Főoldal</a>
-        <a href="rolunk.html">Rólunk</a>
-        <a href="portre.html">Portré és családi fotózás</a>
-        <a href="etel.html">Ételfotózás</a>
-        <a href="reklam.html">Reklám és üzleti fotózás</a>
-        <a href="eskuvo.html">Esküvőfotózás</a>
-        <a href="kapcsolat.html">Kapcsolat</a>
-    </nav>
 
     <div class="content-section">
         <h1 class="page-title">Kapcsolat</h1>
