@@ -329,53 +329,69 @@
             }
         }
 
-        /* Package Colors */
+        /* Package Styles */
+        .package-item {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
         .package-basic {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-left: 4px solid #6c757d;
+            border: 2px solid #CD7F32; /* Bronze */
+        }
+
+        .package-basic .package-title {
+            color: #CD7F32; /* Bronze */
         }
 
         .package-standard {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            border-left: 4px solid #2196f3;
+            border: 2px solid #C0C0C0; /* Silver */
+        }
+
+        .package-standard .package-title {
+            color: #C0C0C0; /* Silver */
         }
 
         .package-premium {
-            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-            border-left: 4px solid #9c27b0;
+            border: 2px solid #FFD700; /* Gold */
         }
 
-        .package-item {
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        .package-premium .package-title {
+            color: #FFD700; /* Gold */
+        }
+
+        .package-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
         .package-title {
-            font-size: 1.4rem;
-            color: var(--text-color);
+            font-size: 1.5rem;
             margin-bottom: 1rem;
             font-weight: 600;
         }
 
         .package-price {
             font-size: 1.8rem;
-            color: var(--primary-color);
             font-weight: 700;
-            margin: 1rem 0;
+            margin-top: 1.5rem;
+            color: var(--primary-color);
         }
 
-        .package-basic .package-price {
-            color: #6c757d;
+        .package-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
         }
 
-        .package-standard .package-price {
-            color: #2196f3;
-        }
-
-        .package-premium .package-price {
-            color: #9c27b0;
+        .package-item li {
+            margin: 0.8rem 0;
+            color: var(--text-color);
         }
 
         /* Mobile Optimizations */
