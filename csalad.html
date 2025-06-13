@@ -55,40 +55,28 @@
         }
 
         .content-section {
-            padding: 4rem 2rem;
-            background: linear-gradient(to bottom, var(--secondary-color), #f8f9fa);
+            padding: 2rem 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98));
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .content-container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            padding: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .content-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .content-title {
-            font-size: 2.5rem;
-            margin-bottom: 2.5rem;
+            font-size: 3rem;
             color: var(--primary-color);
             text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             position: relative;
             padding-bottom: 1rem;
         }
@@ -102,7 +90,6 @@
             width: 100px;
             height: 3px;
             background: var(--accent-color);
-            border-radius: 2px;
         }
 
         .content-text {
@@ -124,19 +111,36 @@
             color: var(--primary-color);
             text-align: center;
             margin-bottom: 2.5rem;
+            padding: 0 2rem;
+            line-height: 1.6;
         }
 
         .content-text h2 {
             color: var(--primary-color);
             font-size: 1.8rem;
-            margin: 2rem 0 1rem;
+            margin: 2.5rem 0 1.5rem;
             text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--accent-color);
         }
 
         .content-text h3 {
             color: var(--accent-color);
             font-size: 1.4rem;
             margin: 1.5rem 0 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-color);
         }
 
         .content-text ul {
@@ -146,9 +150,14 @@
         }
 
         .content-text ul li {
-            margin: 0.5rem 0;
+            margin: 0.8rem 0;
             padding-left: 1.5rem;
             position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .content-text ul li:hover {
+            transform: translateX(5px);
         }
 
         .content-text ul li:before {
@@ -156,6 +165,81 @@
             color: var(--accent-color);
             position: absolute;
             left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            margin-top: 4rem;
+            padding: 2rem 0;
+        }
+
+        .gallery-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .gallery-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
         }
 
         footer {
@@ -310,6 +394,27 @@
                     <li>Utómunka: 12 kép × 3 000 Ft = 36 000 Ft</li>
                     <li>Összesen: kb. 58 500 Ft</li>
                 </ul>
+            </div>
+
+            <!-- Gallery Section -->
+            <div class="gallery-section">
+                <h2 class="gallery-title">Galéria</h2>
+                <div class="gallery-grid">
+                    <!-- Gallery items will be added here -->
+                    <div class="gallery-item">
+                        <img src="path/to/image1.jpg" alt="Család fotó 1">
+                        <div class="gallery-caption">Mini Család Session</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="path/to/image2.jpg" alt="Család fotó 2">
+                        <div class="gallery-caption">Classic Család Shoot</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="path/to/image3.jpg" alt="Család fotó 3">
+                        <div class="gallery-caption">Art Család Series</div>
+                    </div>
+                    <!-- Add more gallery items as needed -->
+                </div>
             </div>
         </div>
     </main>
