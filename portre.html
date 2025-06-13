@@ -25,25 +25,6 @@
             color: var(--text-color);
         }
 
-        header {
-            background-color: var(--primary-color);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
         nav {
             background-color: var(--primary-color);
             padding: 1rem;
@@ -73,31 +54,9 @@
             transform: translateY(-2px);
         }
 
-        /* Mobile Navigation Styles */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            padding: 10px;
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 1001;
-            background: var(--primary-color);
-            border-radius: 4px;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: white;
-            margin: 5px 0;
-            transition: var(--transition);
-        }
-
         .content-section {
             padding: 4rem 2rem;
-            background: linear-gradient(to bottom, var(--background-color), #f8f9fa);
+            background: linear-gradient(to bottom, var(--secondary-color), #f8f9fa);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -159,12 +118,42 @@
             text-align: justify;
         }
 
+        .content-text p:first-child {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
         footer {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
             padding: 20px;
             margin-top: 50px;
+        }
+
+        /* Mobile Navigation Styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: var(--transition);
         }
 
         @media (max-width: 768px) {
@@ -256,5 +245,32 @@
     <footer>
         <p>© 2024 BoHo Vision. Minden jog fenntartva.</p>
     </footer>
+
+    <script>
+        // Mobile menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                nav.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html> 
