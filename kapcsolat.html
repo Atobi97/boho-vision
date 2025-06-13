@@ -165,9 +165,10 @@
             position: fixed;
             top: 10px;
             right: 10px;
-            z-index: 1001;
+            z-index: 1002;
             background: var(--primary-color);
             border-radius: 4px;
+            transition: var(--transition);
         }
 
         .hamburger span {
@@ -194,7 +195,7 @@
                 top: 0;
                 right: 0;
                 width: 250px;
-                z-index: 1000;
+                z-index: 1001;
                 box-shadow: -2px 0 5px rgba(0,0,0,0.2);
             }
 
@@ -276,31 +277,6 @@
     </footer>
 
     <script>
-        // Mobile menu functionality
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav');
-        
-        hamburger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-                nav.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-
         // Navigation scroll effect
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
@@ -308,6 +284,50 @@
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        let isMenuOpen = false;
+        
+        hamburger.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            // Prevent body scrolling when menu is open
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+                isMenuOpen = false;
+                nav.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                nav.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu when scrolling
+        window.addEventListener('scroll', () => {
+            if (isMenuOpen) {
+                isMenuOpen = false;
+                nav.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
 
