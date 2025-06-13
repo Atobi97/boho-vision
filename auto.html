@@ -193,13 +193,15 @@
 
         /* Gallery Styles */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 1.5rem;
             margin: 2rem 0;
+            justify-content: center;
         }
 
         .gallery-item {
+            flex: 0 1 calc(33.333% - 1.5rem);
             position: relative;
             overflow: hidden;
             border-radius: 8px;
@@ -370,8 +372,11 @@
             }
 
             .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 1rem;
+            }
+
+            .gallery-item {
+                flex: 0 1 calc(50% - 1rem);
             }
 
             .gallery-item img {
