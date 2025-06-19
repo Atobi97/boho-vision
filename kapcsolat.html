@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kapcsolat - BoHo Vision</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/IMG_6154.png">
     <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script>
         (function() {
-            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+            // Replace "YOUR_PUBLIC_KEY" with your actual EmailJS public key
+            emailjs.init("YOUR_PUBLIC_KEY");
         })();
     </script>
     <style>
@@ -59,6 +61,20 @@
             top: 0;
             z-index: 1000;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            height: 40px;
+            width: auto;
+            margin-right: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
         }
 
         nav.scrolled {
@@ -204,11 +220,22 @@
                 width: 250px;
                 z-index: 1001;
                 box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             nav.active {
                 height: auto;
                 padding: 60px 1rem 1rem;
+            }
+
+            .nav-logo {
+                display: none;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
             }
 
             nav a {
@@ -378,14 +405,17 @@
     </div>
 
     <nav>
-        <a href="index.html">Főoldal</a>
-        <a href="rolunk.html">Rólunk</a>
-        <a href="divat.html">Divat & Brandfotó</a>
-        <a href="portre.html">Portré & Beauty</a>
-        <a href="csalad.html">Család & Újszülött</a>
-        <a href="esemeny.html">Esemény & Party</a>
-        <a href="auto.html">Autók & Motorok</a>
-        <a href="kapcsolat.html">Kapcsolat</a>
+        <img src="images/IMG_6154.png" alt="BoHo Vision Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="rolunk.html">Rólunk</a>
+            <a href="divat.html">Divat & Brandfotó</a>
+            <a href="portre.html">Portré & Beauty</a>
+            <a href="csalad.html">Család & Újszülött</a>
+            <a href="esemeny.html">Esemény & Party</a>
+            <a href="auto.html">Autók & Motorok</a>
+            <a href="kapcsolat.html">Kapcsolat</a>
+        </div>
     </nav>
 
     <main>
@@ -486,7 +516,7 @@
             }
         });
 
-        // Form validation
+        // Form validation and EmailJS integration
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -498,29 +528,85 @@
 
             // Get form data
             const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                message: document.getElementById('message').value.trim(),
+                to_email: 'info@bohovision.hu', // Your business email
+                from_name: document.getElementById('name').value.trim(),
+                reply_to: document.getElementById('email').value.trim()
             };
 
+            // Validate form data
+            if (!formData.name || !formData.email || !formData.message) {
+                showMessage('Kérjük, töltse ki az összes mezőt!', 'error');
+                resetButton();
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showMessage('Kérjük, adjon meg egy érvényes email címet!', 'error');
+                resetButton();
+                return;
+            }
+
             // Send email using EmailJS
+            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS credentials
             emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
-                .then(function() {
-                    // Show success message
-                    alert('Köszönjük! Üzenetét sikeresen elküldtük.');
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showMessage('Köszönjük! Üzenetét sikeresen elküldtük. Hamarosan felvesszük Önnel a kapcsolatot.', 'success');
                     // Reset form
                     document.getElementById('contactForm').reset();
                 })
                 .catch(function(error) {
-                    // Show error message
-                    alert('Sajnáljuk, hiba történt. Kérjük, próbálja újra később.');
-                    console.error('EmailJS error:', error);
+                    console.error('FAILED...', error);
+                    showMessage('Sajnáljuk, hiba történt az üzenet küldése során. Kérjük, próbálja újra később vagy lépjen kapcsolatba telefonon.', 'error');
                 })
                 .finally(function() {
-                    // Reset button state
-                    submitBtn.textContent = originalBtnText;
-                    submitBtn.disabled = false;
+                    resetButton();
                 });
+
+            function resetButton() {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }
+
+            function showMessage(message, type) {
+                // Remove existing message
+                const existingMessage = document.querySelector('.form-message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+
+                // Create new message element
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `form-message ${type}`;
+                messageDiv.textContent = message;
+                messageDiv.style.cssText = `
+                    padding: 10px 15px;
+                    margin: 10px 0;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    text-align: center;
+                    ${type === 'success' ? 
+                        'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 
+                        'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
+                    }
+                `;
+
+                // Insert message after the form
+                const form = document.getElementById('contactForm');
+                form.parentNode.insertBefore(messageDiv, form.nextSibling);
+
+                // Auto-remove success message after 5 seconds
+                if (type === 'success') {
+                    setTimeout(() => {
+                        messageDiv.remove();
+                    }, 5000);
+                }
+            }
         });
     </script>
 </body>

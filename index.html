@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoHo Vision - Fotószolgáltatások</title>
+    <link rel="icon" type="image/png" href="images/IMG_6154.png">
     <style>
         :root {
             --primary-color: #333;
@@ -34,6 +35,20 @@
             top: 0;
             z-index: 1000;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            height: 40px;
+            width: auto;
+            margin-right: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
         }
 
         nav.scrolled {
@@ -262,10 +277,9 @@
             position: fixed;
             top: 10px;
             right: 10px;
-            z-index: 1002;
+            z-index: 1001;
             background: var(--primary-color);
             border-radius: 4px;
-            transition: var(--transition);
         }
 
         .hamburger span {
@@ -292,13 +306,24 @@
                 top: 0;
                 right: 0;
                 width: 250px;
-                z-index: 1001;
+                z-index: 1000;
                 box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             nav.active {
                 height: auto;
                 padding: 60px 1rem 1rem;
+            }
+
+            .nav-logo {
+                display: none;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
             }
 
             nav a {
@@ -465,14 +490,17 @@
     </div>
 
     <nav>
-        <a href="index.html">Főoldal</a>
-        <a href="rolunk.html">Rólunk</a>
-        <a href="divat.html">Divat & Brandfotó</a>
-        <a href="portre.html">Portré & Beauty</a>
-        <a href="csalad.html">Család & Újszülött</a>
-        <a href="esemeny.html">Esemény & Party</a>
-        <a href="auto.html">Autók & Motorok</a>
-        <a href="kapcsolat.html">Kapcsolat</a>
+        <img src="images/IMG_6154.png" alt="BoHo Vision Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="rolunk.html">Rólunk</a>
+            <a href="divat.html">Divat & Brandfotó</a>
+            <a href="portre.html">Portré & Beauty</a>
+            <a href="csalad.html">Család & Újszülött</a>
+            <a href="esemeny.html">Esemény & Party</a>
+            <a href="auto.html">Autók & Motorok</a>
+            <a href="kapcsolat.html">Kapcsolat</a>
+        </div>
     </nav>
 
     <div class="hero" id="home">
