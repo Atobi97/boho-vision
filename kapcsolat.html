@@ -527,7 +527,11 @@
                 message: document.getElementById('message').value.trim(),
                 to_email: 'boho.vision2025@gmail.com', // Your business email
                 from_name: document.getElementById('name').value.trim(),
-                reply_to: document.getElementById('email').value.trim()
+                reply_to: document.getElementById('email').value.trim(),
+                // Standard EmailJS variables
+                user_name: document.getElementById('name').value.trim(),
+                user_email: document.getElementById('email').value.trim(),
+                user_message: document.getElementById('message').value.trim()
             };
 
             // Validate form data
@@ -555,8 +559,11 @@
                     document.getElementById('contactForm').reset();
                 })
                 .catch(function(error) {
-                    console.error('FAILED...', error);
-                    showMessage('Sajnáljuk, hiba történt az üzenet küldése során. Kérjük, próbálja újra később vagy lépjen kapcsolatba telefonon.', 'error');
+                    console.error('EmailJS Error Details:', error);
+                    console.error('Error Code:', error.status);
+                    console.error('Error Text:', error.text);
+                    console.error('Form Data:', formData);
+                    showMessage('Sajnáljuk, hiba történt az üzenet küldése során. Kérjük, próbálja újra később vagy lépjen kapcsolatba telefonon. Hiba kód: ' + error.status, 'error');
                 })
                 .finally(function() {
                     resetButton();
